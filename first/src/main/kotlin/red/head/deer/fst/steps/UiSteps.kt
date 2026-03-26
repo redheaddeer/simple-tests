@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.steps
+package red.head.deer.fst.steps
 
 import io.cucumber.java.After
 import io.cucumber.java.en.When
@@ -24,7 +24,6 @@ class UiSteps {
         val chromeOptions = ChromeOptions()
         chromeOptions
             .addArguments("--remote-allow-origins=*")
-            .setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
             .setCapability("browserName", "chrome")
 
         return ChromeDriver(chromeOptions)

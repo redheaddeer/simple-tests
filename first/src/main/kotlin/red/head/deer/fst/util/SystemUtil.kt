@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.util
+package red.head.deer.fst.util
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory

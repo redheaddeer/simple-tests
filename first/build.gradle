@@ -30,5 +30,5 @@ test {
 }
 
 springBoot {
-    mainClass.set("red.head.deer.ktqa.RunnerKt")
+    mainClass.set("red.head.deer.fst.RunnerKt")
 }

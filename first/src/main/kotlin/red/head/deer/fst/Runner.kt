@@ -1,4 +1,4 @@
-package red.head.deer.ktqa
+package red.head.deer.fst
 
 import io.cucumber.core.cli.Main
 import io.cucumber.junit.Cucumber
@@ -7,14 +7,14 @@ import mu.KLogging
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.runner.RunWith
-import red.head.deer.ktqa.util.SystemUtil
+import red.head.deer.fst.util.SystemUtil
 import kotlin.system.exitProcess
 
 @RunWith(Cucumber::class)
 @CucumberOptions( // Приоритет при запуске через JUnit, при этом тело класса игнорируется
     plugin = ["io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"],
     features = ["src/main/resources"],
-    glue = ["red.head.deer.ktqa.steps"],
+    glue = ["red.head.deer.fst.steps"],
     tags = "@kafka"
 )
 class Runner {

@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.util
+package red.head.deer.fst.util
 
 import io.restassured.RestAssured
 import io.restassured.builder.RequestSpecBuilder

@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.steps
+package red.head.deer.fst.steps
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.cucumber.java.en.When
@@ -6,7 +6,7 @@ import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import red.head.deer.common.dto.GitPage
 import red.head.deer.common.objects.Endpoints
-import red.head.deer.ktqa.util.RestSpecification
+import red.head.deer.fst.util.RestSpecification
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

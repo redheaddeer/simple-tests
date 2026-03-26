@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.util
+package red.head.deer.fst.util
 
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.clients.consumer.KafkaConsumer
