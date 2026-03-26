@@ -7,7 +7,8 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import red.head.deer.snd.objects.Props
+import red.head.deer.common.objects.Props
+import java.io.File
 
 class UiSteps {
     var driver: WebDriver = initDriver()
@@ -16,7 +17,10 @@ class UiSteps {
     private fun close() = driver.close()
 
     private fun initDriver(): ChromeDriver {
-        System.setProperty("webdriver.chrome.driver", Java.javaClass.classLoader.getResource("webdriver/chromedriver.exe").path)
+        System.setProperty(
+            "webdriver.chrome.driver",
+            File(javaClass.classLoader.getResource("webdriver/chromedriver.exe")!!.path).absolutePath
+        )
         val chromeOptions = ChromeOptions()
         chromeOptions
             .addArguments("--remote-allow-origins=*")

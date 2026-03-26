@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import io.cucumber.java.en.When
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
-import red.head.deer.snd.dto.GitPage
-import red.head.deer.snd.objects.Endpoints
+import red.head.deer.common.dto.GitPage
+import red.head.deer.common.objects.Endpoints
 import red.head.deer.snd.util.RestSpecification
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

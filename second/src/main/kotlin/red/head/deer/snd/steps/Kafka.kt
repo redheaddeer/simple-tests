@@ -3,9 +3,9 @@ package red.head.deer.snd.steps
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.cucumber.datatable.DataTable
 import io.cucumber.java.en.When
-import red.head.deer.snd.dto.KafkaRq
-import red.head.deer.snd.dto.KafkaRs
-import red.head.deer.snd.objects.Props
+import red.head.deer.common.dto.KafkaRq
+import red.head.deer.common.dto.KafkaRs
+import red.head.deer.common.objects.Props
 import red.head.deer.snd.util.KafkaUtil
 import red.head.deer.snd.util.SystemUtil
 import java.util.*

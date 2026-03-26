@@ -1,4 +1,4 @@
-package red.head.deer.snd.objects
+package red.head.deer.common.objects
 
 object Props {
     var uiUri = ""

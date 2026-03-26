@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.objects
+package red.head.deer.common.objects
 
 object Endpoints {
     val GoogleSearch = "/search"

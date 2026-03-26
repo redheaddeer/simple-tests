@@ -12,10 +12,11 @@ import org.apache.kafka.common.serialization.StringSerializer
 import org.awaitility.Awaitility
 import org.jetbrains.kotlin.konan.properties.Properties
 import org.springframework.kafka.test.utils.KafkaTestUtils
-import red.head.deer.snd.objects.Props
+import red.head.deer.common.objects.Props
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import kotlin.test.assertTrue
+import java.time.Duration
 
 class KafkaUtil {
     private lateinit var producer: KafkaProducer<String, String>
@@ -63,7 +64,7 @@ class KafkaUtil {
 
         var record: ConsumerRecord<String, String>? = null
         await {
-            record = KafkaTestUtils.getRecords(consumer, 1000).firstOrNull {
+            record = KafkaTestUtils.getRecords(consumer).firstOrNull {
                 val found = it.key() == key
                 if (!found) println("message with key ${it.key()} was skipped")
                 found

@@ -3,8 +3,9 @@ package red.head.deer.ktqa.steps
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.cucumber.datatable.DataTable
 import io.cucumber.java.en.When
-import red.head.deer.ktqa.dto.KafkaRq
-import red.head.deer.ktqa.dto.KafkaRs
+import red.head.deer.common.dto.KafkaRq
+import red.head.deer.common.dto.KafkaRs
+import red.head.deer.common.objects.Props
 import red.head.deer.ktqa.util.KafkaUtil
 import red.head.deer.ktqa.util.SystemUtil
 import java.util.*
@@ -35,6 +36,7 @@ class Kafka {
         var success = true
         m.forEach {
             when (it[0]) {
+                "kafka" -> Props.kafkaBroker = it[1]
                 "rqTopic" -> rqTopic = it[1]
                 "rsTopic" -> rsTopic = it[1]
                 "success" -> success = it[1].toBoolean()

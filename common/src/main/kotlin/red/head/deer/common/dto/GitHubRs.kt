@@ -1,4 +1,4 @@
-package red.head.deer.ktqa.dto
+package red.head.deer.common.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

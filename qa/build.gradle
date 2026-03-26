@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '3.2.5'
+    id 'org.springframework.boot' version '3.5.3'
     id 'io.spring.dependency-management' version '1.1.5'
     id 'java'
     id 'application'
@@ -8,44 +8,20 @@ plugins {
 group = 'red.head.deer'
 version = '1.0'
 
-repositories {
-    mavenCentral()
+dependencies {
+    implementation project(":common")
+    implementation cucumber
+    implementation allure
+    implementation selenium
+    implementation await
+    implementation rest
+    implementation json
+    implementation microutils
+    implementation lombok
+    implementation spring
+    implementation kotlinCore
+
 }
-
-ext {
-    kotlinVer = '2.1.20'
-    cucumberVer = '7.15.0'
-    deps = {
-        implementation "io.cucumber:cucumber-core:$cucumberVer",
-                "io.cucumber:cucumber-java:$cucumberVer",
-                "io.cucumber:cucumber-junit:$cucumberVer",
-
-                "org.seleniumhq.selenium:selenium-java:4.14.1",
-
-                'io.github.microutils:kotlin-logging-jvm:3.0.4',
-                'org.awaitility:awaitility:4.2.0',
-
-                'io.qameta.allure:allure-cucumber7-jvm:2.27.0',
-                'io.qameta.allure:allure-junit4:2.8.1',
-
-                'io.rest-assured:rest-assured:5.5.0',
-                "org.projectlombok:lombok:1.18.22",
-                "com.fasterxml.jackson.core:jackson-databind:2.15.2",
-                "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2",
-                'org.skyscreamer:jsonassert:1.5.0',
-
-                "org.springframework.kafka:spring-kafka:2.8.11",
-                "org.springframework.kafka:spring-kafka-test:2.8.11",
-                "org.springframework.boot:spring-boot-gradle-plugin:2.7.18",
-
-                "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVer",
-                "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer",
-                "org.jetbrains.kotlin:kotlin-test:$kotlinVer",
-                "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
-    }
-}
-
-dependencies deps
 bootJar.enabled = false
 jar.enabled = true
 
