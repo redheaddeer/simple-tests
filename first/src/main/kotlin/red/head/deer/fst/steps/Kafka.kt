@@ -1,4 +1,4 @@
-package red.head.deer.snd.steps
+package red.head.deer.fst.steps
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.cucumber.datatable.DataTable
@@ -6,8 +6,8 @@ import io.cucumber.java.en.When
 import red.head.deer.common.dto.KafkaRq
 import red.head.deer.common.dto.KafkaRs
 import red.head.deer.common.objects.Props
-import red.head.deer.snd.util.KafkaUtil
-import red.head.deer.snd.util.SystemUtil
+import red.head.deer.fst.util.KafkaUtil
+import red.head.deer.fst.util.SystemUtil
 import java.util.*
 
 class Kafka {

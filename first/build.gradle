@@ -20,6 +20,7 @@ dependencies {
     implementation lombok
     implementation spring
     implementation kotlinCore
+
 }
 bootJar.enabled = false
 jar.enabled = true
@@ -29,5 +30,5 @@ test {
 }
 
 springBoot {
-    mainClass.set("red.head.deer.snd.RunnerKt")
+    mainClass.set("red.head.deer.fst.RunnerKt")
 }

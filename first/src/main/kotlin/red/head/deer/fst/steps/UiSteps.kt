@@ -1,8 +1,7 @@
-package red.head.deer.snd.steps
+package red.head.deer.fst.steps
 
 import io.cucumber.java.After
 import io.cucumber.java.en.When
-import org.jetbrains.kotlin.gradle.internal.name.JvmStandardClassIds.Annotations.Java
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
@@ -21,6 +20,7 @@ class UiSteps {
             "webdriver.chrome.driver",
             File(javaClass.classLoader.getResource("webdriver/chromedriver.exe")!!.path).absolutePath
         )
+
         val chromeOptions = ChromeOptions()
         chromeOptions
             .addArguments("--remote-allow-origins=*")

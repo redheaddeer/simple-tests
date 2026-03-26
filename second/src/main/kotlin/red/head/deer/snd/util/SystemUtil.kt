@@ -1,11 +1,8 @@
 package red.head.deer.snd.util
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import mu.KLogging
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonParser
-import java.util.Properties
 
 class SystemUtil {
     companion object : KLogging()

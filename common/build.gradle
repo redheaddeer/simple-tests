@@ -8,19 +8,14 @@ plugins {
 group = 'red.head.deer'
 version = '1.0'
 
-dependencies {
-    implementation project(":common")
-    implementation cucumber
-    implementation allure
-    implementation selenium
-    implementation await
-    implementation rest
-    implementation json
-    implementation microutils
-    implementation lombok
-    implementation spring
-    implementation kotlinCore
+repositories {
+    mavenCentral()
 }
+
+dependencies {
+    implementation json
+}
+
 bootJar.enabled = false
 jar.enabled = true
 
@@ -28,6 +23,6 @@ test {
     useJUnitPlatform()
 }
 
-springBoot {
-    mainClass.set("red.head.deer.snd.RunnerKt")
+test {
+    useJUnitPlatform()
 }
