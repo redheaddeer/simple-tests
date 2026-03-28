@@ -1,25 +1,40 @@
 package red.head.deer.trd.steps
 
-import io.cucumber.java.After
-import io.cucumber.java.en.When
-import org.jetbrains.kotlin.gradle.internal.name.JvmStandardClassIds.Annotations.Java
+import org.junit.jupiter.api.Test
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import red.head.deer.common.objects.Props
 import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.net.URL
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.StandardCopyOption
+
 
 class UiSteps {
     var driver: WebDriver = initDriver()
 
-    @After
-    private fun close() = driver.close()
+    @Throws(IOException::class)
+    fun getDriverPath(): File {
+        val driverUrl: URL = javaClass.classLoader.getResource("webdriver/chromedriver.exe")
+            ?: throw FileNotFoundException("Driver not found")
 
+        val tempFile: Path = Files.createTempFile("chromedriver", ".exe")
+        tempFile.toFile().deleteOnExit()
+
+        driverUrl.openStream().use { `is` ->
+            Files.copy(`is`, tempFile, StandardCopyOption.REPLACE_EXISTING)
+        }
+        return tempFile.toFile()
+    }
     private fun initDriver(): ChromeDriver {
         System.setProperty(
             "webdriver.chrome.driver",
-            File(javaClass.classLoader.getResource("webdriver/chromedriver.exe")!!.path).absolutePath
+            getDriverPath().path
         )
         val chromeOptions = ChromeOptions()
         chromeOptions
@@ -29,23 +44,14 @@ class UiSteps {
         return ChromeDriver(chromeOptions)
     }
 
-    @When("Open url '{}'")
-    fun openUrl(url: String) {
-        val uri = url.ifBlank { Props.uiUri }
-        driver.get(uri)
+    @Test
+    fun openUrl() {
+        driver.get(Props.uiUri)
         Thread.sleep(10000L)
-    }
-
-    @When("Click button '{}'")
-    fun click(button: String) {
         driver
-            .findElement(By.xpath("//*[text()='$button']"))
+            .findElement(By.xpath("//*[text()='НАЖМИ СЮДА']"))
             .click()
         Thread.sleep(3000L)
-    }
-
-    @When("Close browser")
-    fun closeBrowser() {
         driver.quit()
     }
 }

@@ -9,17 +9,16 @@ group = 'red.head.deer'
 version = '1.0'
 
 dependencies {
-    implementation project(":common")
-    implementation cucumber
-    implementation allure
-    implementation selenium
-    implementation await
-    implementation rest
-    implementation json
-    implementation microutils
-    implementation lombok
-    implementation spring
-    implementation kotlinCore
+    testImplementation project(":common")
+    testImplementation allure
+    testImplementation selenium
+    testImplementation await
+    testImplementation rest
+    testImplementation json
+    testImplementation microutils
+    testImplementation lombok
+    testImplementation spring
+    testImplementation kotlinCore
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.12.2'
 }
 bootJar.enabled = false
@@ -31,4 +30,9 @@ test {
 
 springBoot {
     mainClass.set("red.head.deer.snd.RunnerKt")
+}
+
+test {
+    useJUnitPlatform()
+    failFast = false
 }

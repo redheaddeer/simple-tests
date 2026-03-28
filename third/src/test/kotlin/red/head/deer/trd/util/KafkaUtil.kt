@@ -16,7 +16,6 @@ import red.head.deer.common.objects.Props
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import kotlin.test.assertTrue
-import java.time.Duration
 
 class KafkaUtil {
     private lateinit var producer: KafkaProducer<String, String>

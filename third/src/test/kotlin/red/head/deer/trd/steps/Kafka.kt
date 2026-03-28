@@ -10,6 +10,7 @@ import red.head.deer.trd.util.KafkaUtil
 import red.head.deer.trd.util.SystemUtil
 import java.util.*
 import mu.KLogging
+import kotlin.test.assertTrue
 
 class Kafka {
 
@@ -47,8 +48,11 @@ class Kafka {
         KLogging().logger.info("body: ${SystemUtil().prettyJson(rsBody)}")
         try {
             om.readValue(rsBody, KafkaRs::class.java)
+            // если ожидалось, что тест упадёт, но исключение не сработало, то принудительно "падаем" через assert
+            if (!success) assertTrue(false, "Expected test failure")
         } catch (e: Exception) {
-            throw IllegalArgumentException("Parsing failed: ${e.message}")
+            if (success) throw IllegalArgumentException("Parsing failed: ${e.message}")
+            else assertTrue(true, "Expected test failure")
         }
 
     }

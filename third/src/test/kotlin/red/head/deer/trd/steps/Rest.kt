@@ -1,9 +1,9 @@
 package red.head.deer.trd.steps
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.cucumber.java.en.When
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
+import org.junit.jupiter.api.Test
 import red.head.deer.common.dto.GitPage
 import red.head.deer.common.objects.Endpoints
 import red.head.deer.trd.util.RestSpecification
@@ -17,7 +17,7 @@ class Rest {
     val om = ObjectMapper()
 
     // если схема ответа не определена, но точно известно, какой уникальный текст в ответе надо найти
-    @When("Google search")
+    @Test
     fun googleSearch() {
         val rs = googleSpec
             .contentType(ContentType.ANY)
@@ -34,7 +34,7 @@ class Rest {
     }
 
     // если схема ответа заранее определена и можно описать дата-класс
-    @When("Wiki git page")
+    @Test
     fun wikiGit() {
         val rs = wikiSpec
             .contentType(ContentType.ANY)
@@ -53,7 +53,7 @@ class Rest {
     }
 
     // если нужно проверить, допустим, доступность стенда
-    @When("Simple checker")
+    @Test
     fun rest() {
         given()
             .`when`().get("https://qaqateam.do.am/")
