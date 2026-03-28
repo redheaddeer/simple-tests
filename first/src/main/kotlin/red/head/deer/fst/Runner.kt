@@ -13,9 +13,9 @@ import kotlin.system.exitProcess
 @RunWith(Cucumber::class)
 @CucumberOptions( // Приоритет при запуске через JUnit, при этом тело класса игнорируется
     plugin = ["io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"],
-    features = ["src/main/resources"],
+    features = ["classpath:features"],
     glue = ["red.head.deer.fst.steps"],
-    tags = "@kafka"
+    tags = "@ui"
 )
 class Runner {
     companion object : KLogging() {
