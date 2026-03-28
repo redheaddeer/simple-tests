@@ -4,4 +4,5 @@ plugins {
 rootProject.name = 'simple-tests'
 include 'first'
 include 'second'
+include 'third'
 include 'common'

@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '3.5.3'
+    id 'io.spring.dependency-management' version '1.1.5'
+    id 'java'
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.20'
+}
+group = 'red.head.deer'
+version = '1.0'
+
+dependencies {
+    testImplementation project(":common")
+    testImplementation allure
+    testImplementation selenium
+    testImplementation await
+    testImplementation rest
+    testImplementation json
+    testImplementation microutils
+    testImplementation lombok
+    testImplementation spring
+    testImplementation kotlinCore
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.12.2'
+}
+bootJar.enabled = false
+jar.enabled = true
+
+test {
+    useJUnitPlatform()
+}
+
+springBoot {
+    mainClass.set("red.head.deer.snd.RunnerKt")
+}
+
+test {
+    useJUnitPlatform()
+    failFast = false
+}
