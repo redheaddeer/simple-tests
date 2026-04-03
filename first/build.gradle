@@ -26,8 +26,7 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes(
-                'Main-Class': 'red.head.deer.fst.RunnerKt',
-                'Class-Path': configuration.runtimeClasspath.files.collect { it.getName() }.join(' ')
+                'Main-Class': 'red.head.deer.fst.Runner'
         )
     }
     from { 

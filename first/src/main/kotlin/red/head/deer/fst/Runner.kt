@@ -1,22 +1,9 @@
 package red.head.deer.fst
 
 import io.cucumber.core.cli.Main
-import io.cucumber.junit.Cucumber
-import io.cucumber.junit.CucumberOptions
 import mu.KLogging
-import org.junit.AfterClass
-import org.junit.BeforeClass
-import org.junit.runner.RunWith
-import red.head.deer.fst.util.SystemUtil
 import kotlin.system.exitProcess
 
-@RunWith(Cucumber::class)
-@CucumberOptions( // Приоритет при запуске через JUnit, при этом тело класса игнорируется
-    plugin = ["io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"],
-    features = ["classpath:features"],
-    glue = ["red.head.deer.fst.steps"],
-    tags = "@ui"
-)
 class Runner {
     companion object : KLogging() {
         private fun getCucumber(args: List<String>): Byte =
@@ -24,36 +11,30 @@ class Runner {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            val cucumberOptions = listOf<String>()
-            // VM Options при запуске как Application или через Kotlin плагин (аналогично запуску jar)
-            val tags =
-                if (System.getProperty("tags") != null) listOf("--tags", System.getProperty("tags")) else listOf()
-            val glue =
-                if (System.getProperty("glue") != null) listOf("--glue", System.getProperty("glue")) else listOf()
-            val plugin =
-                if (System.getProperty("plugin") != null) listOf("--plugin", System.getProperty("plugin")) else listOf()
-            val features = System.getProperty("features") ?: ""
-            cucumberOptions
-                .plus(tags)
-                .plus(glue)
-                .plus(plugin)
-                .plus(listOf(features))
-            before()
-            val exitCode = getCucumber(cucumberOptions)
-            after()
+            // значения по умолчанию для локального запуска
+            val cucumberArgs = hashMapOf<String, String>(
+                Pair("cucumber.glue", "red.head.deer.fst.steps"),
+                Pair("cucumber.plugin", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"),
+                Pair("cucumber.filter.tags", "@rest"),
+                Pair("cucumber.features", "G:\\projects\\simple-tests\\first\\build\\libs\\features"),
+            )
+            // внешние значения при запуске из jar файла
+            args.forEach { arg ->
+                when {
+                    arg.startsWith("tags") -> cucumberArgs["cucumber.filter.tags"] = arg.substringAfter('=')
+                    arg.startsWith("features") -> cucumberArgs["cucumber.features"] = arg.substringAfter('=')
+                }
+            }
+            setProps(cucumberArgs)
+            val exitCode = getCucumber(listOf())
             exitProcess(exitCode.toInt())
         }
 
-        @BeforeClass
-        @JvmStatic
-        fun before() {
-            SystemUtil().before()
-        }
-
-        @AfterClass
-        @JvmStatic
-        fun after() {
-            SystemUtil().after()
+        private fun setProps(cucumberArgs: HashMap<String, String>) {
+            System.setProperty("cucumber.features", cucumberArgs["cucumber.features"] ?: "")
+            System.setProperty("cucumber.filter.tags", cucumberArgs["cucumber.filter.tags"] ?: "")
+            System.setProperty("cucumber.glue", cucumberArgs["cucumber.glue"] ?: "")
+            System.setProperty("cucumber.plugin", cucumberArgs["cucumber.plugin"] ?: "")
         }
     }
 }
