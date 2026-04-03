@@ -1,15 +1,13 @@
 plugins {
-    id 'org.springframework.boot' version '3.5.3'
-    id 'io.spring.dependency-management' version '1.1.5'
     id 'java'
     id 'application'
+    id 'io.spring.dependency-management' version '1.1.5'
     id 'org.jetbrains.kotlin.jvm' version '2.1.20'
 }
 group = 'red.head.deer'
 version = '1.0'
 
 dependencies {
-    implementation project(":common")
     implementation cucumber
     implementation allure
     implementation selenium
@@ -20,15 +18,19 @@ dependencies {
     implementation lombok
     implementation spring
     implementation kotlinCore
-
-}
-bootJar.enabled = false
-jar.enabled = true
-
-test {
-    useJUnitPlatform()
+    implementation project(":common")
 }
 
-springBoot {
-    mainClass.set("red.head.deer.fst.RunnerKt")
+jar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(
+                'Main-Class': 'red.head.deer.fst.Runner'
+        )
+    }
+    from { 
+      zip64 true
+      configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } 
+    }
 }
