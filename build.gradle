@@ -12,7 +12,8 @@ version = '1.0'
 ext {
     kotlinVer = '2.1.20'
     cucumberVer = '7.15.0'
-    springBoot = '3.3.10'
+    springVer = '3.3.10'
+    springBootVer = '3.5.3'
 
     // cucumber
     cucumberCore = "io.cucumber:cucumber-core:$cucumberVer"
@@ -44,10 +45,12 @@ ext {
     // general
     lombok = "org.projectlombok:lombok:1.18.22"
 
-    springKafka = "org.springframework.kafka:spring-kafka:$springBoot"
-    springKafkaTest = "org.springframework.kafka:spring-kafka-test:$springBoot"
-    springGradle = "org.springframework.boot:spring-boot-gradle-plugin:3.5.3"
-    spring = [springKafka, springKafkaTest, springGradle]
+    springKafka = "org.springframework.kafka:spring-kafka:$springVer"
+    springKafkaTest = "org.springframework.kafka:spring-kafka-test:$springVer"
+    springBoot = "org.springframework.boot:spring-boot-starter:$springBootVer"
+    springGradle = "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
+    springWeb = "org.springframework.boot:spring-boot-starter-web:$springBootVer"
+    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb]
 
     kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
     kotlinCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVer"
