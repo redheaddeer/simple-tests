@@ -16,15 +16,11 @@ spring:
   logging:
     level:
       red.head.deer: DEBUG
+      org.springframework.web: INFO
+      org.hibernate: WARN
+    file:
+      name: logs/app.log
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"
 
 simple-service:
-
-logging:
-  level:
-    com.example: DEBUG
-    org.springframework.web: INFO
-    org.hibernate: WARN
-  file:
-    name: logs/app.log
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"

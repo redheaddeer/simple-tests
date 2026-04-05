@@ -21,6 +21,9 @@ dependencies {
     implementation spring
     implementation kotlinCore
 }
+configurations.implementation {
+    exclude group: 'commons-logging', module: 'commons-logging'
+}
 bootJar.enabled = false
 jar.enabled = true
 
