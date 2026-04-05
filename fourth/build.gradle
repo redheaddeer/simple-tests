@@ -29,5 +29,5 @@ test {
 }
 
 springBoot {
-    mainClass.set("red.head.deer.fourth.SimpleApp")
+    mainClass.set("red.head.deer.frt.SimpleApp")
 }

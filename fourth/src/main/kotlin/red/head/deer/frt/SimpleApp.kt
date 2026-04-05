@@ -1,4 +1,4 @@
-package red.head.deer.fourth
+package red.head.deer.frt
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
