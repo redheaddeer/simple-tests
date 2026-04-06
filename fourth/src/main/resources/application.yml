@@ -24,3 +24,5 @@ spring:
       console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"
 
 simple-service:
+  test-set: ALL
+  useDB: true
