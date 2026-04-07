@@ -14,8 +14,13 @@ class SimpleController(
     val log = logger("red.head.deer.frt.controller")
 
     @GetMapping("/start")
-    fun start(): ResponseEntity<String> {
+    fun start(
+      @RequestParam("useDb") useDb: Boolean,
+      @RequestParam("testSet") testSet: String
+    ): ResponseEntity<String> {
         log.info("start")
+        config.useDB = useDb ?: config.useDB
+        config.testSet = testSet ?: config.testSet
         SimpleService(config).start()
         return ResponseEntity.ok("Simple start")
     }
