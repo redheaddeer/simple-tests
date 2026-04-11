@@ -1,9 +1,21 @@
 package red.head.deer.frt.steps
 
-class Sets {
-    fun runAll() {}
+import red.head.deer.frt.config.Config
 
-    fun runRest() {}
+class Sets(
+    val config: Config,
+)  {
+    fun runAll() {
+        runRest()
+        runKafka()
+        runUi()
+    }
+
+    fun runRest() {
+        Rest(config).googleSearch()
+        Rest(config).wikiGit()
+        Rest(config).rest()
+    }
 
     fun runKafka() {}
 

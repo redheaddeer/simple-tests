@@ -7,5 +7,9 @@ import org.springframework.stereotype.Component
 @ConfigurationProperties(prefix = "simple-service")
 data class Config(
     var testSet: String = "",
-    var useDB: Boolean = false
+    var useDB: Boolean = false,
+    var googleUri: String = "",
+    var githubUri: String = "",
+    var uiUri: String = "",
+    var wikiUri: String = "",
 )

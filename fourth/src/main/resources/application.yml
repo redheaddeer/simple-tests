@@ -26,3 +26,6 @@ spring:
 simple-service:
   test-set: ALL
   useDB: true
+  google-uri: https://www.google.com
+  wiki-uri: https://ru.wikipedia.org
+  ui-uri: https://qaqateam.do.am/

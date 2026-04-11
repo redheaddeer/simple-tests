@@ -15,6 +15,7 @@ class SimpleController(
 ) {
     val log = logger("red.head.deer.frt.controller")
 
+//    curl -v 'http://localhost:8080/start?useDb=false&testSet=ALL'
     @GetMapping("/start")
     fun start(
         @RequestParam("useDb") useDb: Boolean,
@@ -26,5 +27,4 @@ class SimpleController(
         SimpleService(config).start()
         return ResponseEntity.ok("Simple start")
     }
-
 }
