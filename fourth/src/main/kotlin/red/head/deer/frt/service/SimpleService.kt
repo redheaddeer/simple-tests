@@ -3,6 +3,7 @@ package red.head.deer.frt.service
 import mu.KotlinLogging.logger
 import red.head.deer.frt.config.Config
 
+
 class SimpleService(
     val config: Config
 ) {
