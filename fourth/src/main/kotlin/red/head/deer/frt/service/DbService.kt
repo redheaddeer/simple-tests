@@ -15,4 +15,8 @@ WHERE step=:step
 val selectStatus = """
 SELECT status FROM test_result WHERE step=:step
 """ 
+
+val selectResult = """
+SELECT result FROM test_result WHERE step:=step
+ """ 
 }
