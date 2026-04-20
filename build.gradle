@@ -55,7 +55,8 @@ ext {
     springBoot = "org.springframework.boot:spring-boot-starter:$springBootVer"
     springGradle = "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
     springWeb = "org.springframework.boot:spring-boot-starter-web:$springBootVer"
-    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb]
+    springJdbc = "org.springframework.boot:spring-boot-starter-jdbc:$springBootVer"
+    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb, springJdbc]
 
     kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
     kotlinCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVer"
