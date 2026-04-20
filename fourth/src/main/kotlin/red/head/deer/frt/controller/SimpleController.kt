@@ -27,4 +27,27 @@ class SimpleController(
         SimpleService(config).start()
         return ResponseEntity.ok("Simple start")
     }
+
+// получаем короткое дто со статусом
+@GetMapping("/status")
+fun status(
+@RequestParam("testSet") val testSet: String
+); ResponseEntity<Any>{
+
+if (config.useDB) {}
+   return ResponseEntity.ok(" ")
+}
+
+
+// получаем полный результат сценария
+@GetMapping("/result")
+fun result(
+@RequestParam("testSet") val testSet: String
+); ResponseEntity<Any>{
+
+if (config.useDB) {}
+   return ResponseEntity.ok(" ")
+}
+
+// todo: добавить переключение бд отдельной ручкой 
 }
