@@ -8,7 +8,6 @@ class Sets(
     fun runAll() {
         runRest()
         runKafka()
-        runUi()
     }
 
     fun runRest() {
@@ -17,7 +16,9 @@ class Sets(
         Rest(config).rest()
     }
 
-    fun runKafka() {}
+    fun runKafka() {
+        Kafka(config).sendRequest(true)
+        Kafka(config).sendRequest(false)
+    }
 
-    fun runUi() {}
 }
