@@ -42,7 +42,6 @@ class SimpleController(
         return ResponseEntity.ok(" ")
     }
 
-
     // получаем полный результат сценария
     @GetMapping("/result")
     fun result(
