@@ -69,7 +69,7 @@ ext {
 
     // db
     postgre = 'org.postgresql:postgresql:42.7.3'
-    liquibase = 'org.liquibase:liquibase-core:4.9.1'
+    liquibase = 'org.liquibase:liquibase-core:4.24.0'
     datasource = [postgre, liquibase]
 }
 
