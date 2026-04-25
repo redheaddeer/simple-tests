@@ -3,6 +3,7 @@ package red.head.deer.trd.steps
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
+import mu.KotlinLogging.logger
 import org.junit.jupiter.api.Test
 import red.head.deer.common.dto.GitPage
 import red.head.deer.common.objects.Endpoints
@@ -15,6 +16,7 @@ class Rest {
     var wikiSpec = RestSpecification().wikiSpec
     var githubSpec = RestSpecification().githubSpec
     val om = ObjectMapper()
+    var logger = logger("red.head.deer.trd.steps")
 
     // если схема ответа не определена, но точно известно, какой уникальный текст в ответе надо найти
     @Test
@@ -59,4 +61,13 @@ class Rest {
             .`when`().get("https://qaqateam.do.am/")
             .then().statusCode(200)
     }
+
+
+//    @ParameterizedTest
+//    @CsvSource(
+//        "Hello, 5, 20",
+//    )
+//    fun printText(text: String, h: Int, w: Int) {
+//    }
+
 }

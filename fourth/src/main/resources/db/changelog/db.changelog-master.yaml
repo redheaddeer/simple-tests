@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - logicalFilePath: fourth-changelog
+  - changeSet:
+      id: create-test-result-table
+      author: simple-test
+      comment: create test result table
+      context: fourth
+      changes:
+        - sqlFile:
+            path: db/changelog/sql/create-test-result-table.sql
