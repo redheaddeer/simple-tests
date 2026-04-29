@@ -41,6 +41,9 @@ ext {
     jsonAssert = "org.skyscreamer:jsonassert:1.5.0"
     json = [jacksonCore, jacksonYaml, jacksonKotlin, jsonAssert]
 
+    // xml
+    jacksonXml = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$jacksonVer"
+
     // log
     microutils = "io.github.microutils:kotlin-logging-jvm:3.0.4"
 

@@ -15,8 +15,8 @@ class Runner {
             val cucumberArgs = hashMapOf<String, String>(
                 Pair("cucumber.glue", "red.head.deer.fst.steps"),
                 Pair("cucumber.plugin", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"),
-                Pair("cucumber.filter.tags", "@json"),
-                Pair("cucumber.features", "features"),
+                Pair("cucumber.filter.tags", "@parsing"),
+                Pair("cucumber.features", "G:\\projects\\simple-tests\\common\\src\\main\\resources\\features"),
             )
             // внешние значения при запуске из jar файла
             args.forEach { arg ->
