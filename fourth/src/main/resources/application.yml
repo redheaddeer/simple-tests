@@ -1,0 +1,31 @@
+server.port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_db
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    profiles: dev
+  logging:
+    level:
+      red.head.deer: DEBUG
+      org.springframework.web: INFO
+      org.hibernate: WARN
+    file:
+      name: logs/app.log
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"
+
+simple-service:
+  test-set: ALL
+  useDB: true
+  google-uri: https://www.google.com
+  wiki-uri: https://ru.wikipedia.org
+  ui-uri: https://qaqateam.do.am/

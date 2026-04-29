@@ -18,6 +18,7 @@ dependencies {
     implementation lombok
     implementation spring
     implementation kotlinCore
+    implementation jacksonXml
     implementation project(":common")
 }
 

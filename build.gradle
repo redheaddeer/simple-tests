@@ -12,7 +12,9 @@ version = '1.0'
 ext {
     kotlinVer = '2.1.20'
     cucumberVer = '7.15.0'
-    springBoot = '3.3.10'
+    springVer = '3.3.10'
+    springBootVer = '3.5.3'
+    jacksonVer = '2.17.2'
 
     // cucumber
     cucumberCore = "io.cucumber:cucumber-core:$cucumberVer"
@@ -33,10 +35,14 @@ ext {
 
     // rest
     rest = "io.rest-assured:rest-assured:5.5.0"
-    jacksonCore = "com.fasterxml.jackson.core:jackson-databind:2.15.2"
-    jacksonYaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2"
+    jacksonCore = "com.fasterxml.jackson.core:jackson-databind:$jacksonVer"
+    jacksonYaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVer"
+    jacksonKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVer"
     jsonAssert = "org.skyscreamer:jsonassert:1.5.0"
-    json = [jacksonCore, jacksonYaml, jsonAssert]
+    json = [jacksonCore, jacksonYaml, jacksonKotlin, jsonAssert]
+
+    // xml
+    jacksonXml = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$jacksonVer"
 
     // log
     microutils = "io.github.microutils:kotlin-logging-jvm:3.0.4"
@@ -44,10 +50,12 @@ ext {
     // general
     lombok = "org.projectlombok:lombok:1.18.22"
 
-    springKafka = "org.springframework.kafka:spring-kafka:$springBoot"
-    springKafkaTest = "org.springframework.kafka:spring-kafka-test:$springBoot"
-    springGradle = "org.springframework.boot:spring-boot-gradle-plugin:3.5.3"
-    spring = [springKafka, springKafkaTest, springGradle]
+    springKafka = "org.springframework.kafka:spring-kafka:$springVer"
+    springKafkaTest = "org.springframework.kafka:spring-kafka-test:$springVer"
+    springBoot = "org.springframework.boot:spring-boot-starter:$springBootVer"
+    springGradle = "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
+    springWeb = "org.springframework.boot:spring-boot-starter-web:$springBootVer"
+    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb]
 
     kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
     kotlinCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVer"
