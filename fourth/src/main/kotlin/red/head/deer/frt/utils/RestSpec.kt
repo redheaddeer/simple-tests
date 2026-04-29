@@ -1,8 +1,9 @@
-package red.head.deer.frt.service
+package red.head.deer.frt.utils
 
 import io.restassured.builder.RequestSpecBuilder
-import io.restassured.config.*
-import io.restassured.filter.log.*
+import io.restassured.config.HttpClientConfig
+import io.restassured.config.RestAssuredConfig
+import io.restassured.filter.log.ResponseLoggingFilter
 import io.restassured.specification.RequestSpecification
 
 class RestSpec {

@@ -20,6 +20,7 @@ dependencies {
     implementation lombok
     implementation spring
     implementation kotlinCore
+    implementation datasource
 }
 configurations.implementation {
     exclude group: 'commons-logging', module: 'commons-logging'

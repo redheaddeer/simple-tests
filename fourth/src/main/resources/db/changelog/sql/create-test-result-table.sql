@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS test_result
+(
+    step VARCHAR (32) NOT NULL PRIMARY KEY,
+    status VARCHAR (8), -- SUCCESS / ERROR / RUNNING / [NULL]
+    result JSON
+);

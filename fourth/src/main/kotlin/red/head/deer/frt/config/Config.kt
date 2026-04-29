@@ -12,4 +12,6 @@ data class Config(
     var githubUri: String = "",
     var uiUri: String = "",
     var wikiUri: String = "",
-)
+) {
+
+}

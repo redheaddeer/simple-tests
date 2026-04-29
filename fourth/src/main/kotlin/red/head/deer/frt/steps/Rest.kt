@@ -6,7 +6,7 @@ import io.restassured.http.ContentType
 import red.head.deer.common.dto.GitPage
 import red.head.deer.common.objects.Endpoints
 import red.head.deer.frt.config.Config
-import red.head.deer.frt.service.RestSpec
+import red.head.deer.frt.utils.RestSpec
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

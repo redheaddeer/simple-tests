@@ -21,7 +21,6 @@ class SimpleService(
                 TestSet.ALL.name -> Sets(config).runAll()
                 TestSet.REST.name -> Sets(config).runRest()
                 TestSet.KAFKA.name -> Sets(config).runKafka()
-                TestSet.UI.name -> Sets(config).runUi()
             }
         }
 
@@ -29,5 +28,5 @@ class SimpleService(
 }
 
 enum class TestSet {
-    ALL, REST, KAFKA, UI
+    ALL, REST, KAFKA
 }

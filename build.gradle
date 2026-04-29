@@ -39,7 +39,8 @@ ext {
     jacksonYaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVer"
     jacksonKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVer"
     jsonAssert = "org.skyscreamer:jsonassert:1.5.0"
-    json = [jacksonCore, jacksonYaml, jacksonKotlin, jsonAssert]
+    gson = "com.google.code.gson:gson:2.11.0"
+    json = [jacksonCore, jacksonYaml, jacksonKotlin, jsonAssert, gson]
 
     // xml
     jacksonXml = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$jacksonVer"
@@ -50,18 +51,26 @@ ext {
     // general
     lombok = "org.projectlombok:lombok:1.18.22"
 
+    // spring
     springKafka = "org.springframework.kafka:spring-kafka:$springVer"
     springKafkaTest = "org.springframework.kafka:spring-kafka-test:$springVer"
     springBoot = "org.springframework.boot:spring-boot-starter:$springBootVer"
     springGradle = "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
     springWeb = "org.springframework.boot:spring-boot-starter-web:$springBootVer"
-    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb]
+    springJdbc = "org.springframework.boot:spring-boot-starter-jdbc:$springBootVer"
+    spring = [springKafka, springKafkaTest, springGradle, springBoot, springWeb, springJdbc]
 
+    // kt
     kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
     kotlinCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVer"
     kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
     kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVer"
     kotlinCore = [kotlinLib, kotlinCommon, kotlinGradle, kotlinTest]
+
+    // db
+    postgre = 'org.postgresql:postgresql:42.7.3'
+    liquibase = 'org.liquibase:liquibase-core:4.24.0'
+    datasource = [postgre, liquibase]
 }
 
 dependencies {
