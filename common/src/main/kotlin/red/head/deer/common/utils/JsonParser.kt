@@ -9,10 +9,19 @@ import com.fasterxml.jackson.databind.node.IntNode
 import com.fasterxml.jackson.databind.node.NullNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.databind.node.TextNode
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+
+val om = ObjectMapper()
 
 fun <T> T.ifNotNull(newValue: T?): T = newValue ?: this
 
-val om = ObjectMapper()
+fun prettyJson(json: String): String {
+    return GsonBuilder()
+        .setPrettyPrinting()
+        .create()
+        .toJson(JsonParser().parse(json))
+}
 
 fun setNestedValue(node: ObjectNode, path: String, rawValue: String) {
     val pathRegex = Regex("""([^.\[\]]+)(?:\[(\d+)])?\.?(.*)""")
